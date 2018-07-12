@@ -10,6 +10,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "yarn": "1.7.0"
+  },
   "dependencies": {
     "@types/node-fetch": "^2.1.1",
     "koa": "^2.5.2",
