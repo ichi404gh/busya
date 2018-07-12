@@ -21,11 +21,11 @@
     "koa-router": "^7.4.0",
     "node-fetch": "^2.1.2",
     "ts-node": "^7.0.0",
-    "typescript": "^2.9.2"
+    "typescript": "^2.9.2",
+    "@types/koa": "^2.0.46",
+    "@types/koa-router": "^7.0.30"
   },
   "devDependencies": {
-    "@types/koa": "^2.0.46",
-    "@types/koa-router": "^7.0.30",
     "nodemon": "^1.18.1"
   }
 }
