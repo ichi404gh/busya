@@ -1,5 +1,6 @@
 import config from '../config'
 import fetch from 'node-fetch'
+
 interface SendPhotoParams {
     chat_id: number | string
     photo: string
