@@ -3,16 +3,20 @@ import * as Router from 'koa-router'
 import bodyparser from 'koa-bodyparser-ts'
 
 import config from './config'
-import cnst from './const'
-import process from './processUpdate'
+import { ModuleLoader } from './modules';
+import PuckTrigger from './modules/PuckTrigger';
 
 const app = new Koa();
 app.use(bodyparser())
 
 const router = new Router();
 
+const modules = new ModuleLoader([
+    new PuckTrigger(),
+])
+
 router.post('/' + config.updateUrl, async (ctx) => {
-    await process(ctx.request.body)
+    modules.ReceiveUpdate(ctx.request.body)
     ctx.res.statusCode = 200;
 })
 

@@ -44,12 +44,3 @@ export interface Sticker {
 }
 type Chat = PrivateChat
 
-
-export interface SendPhotoParams {
-    chat_id: number|string
-    photo: string
-    caption?: string
-    parse_mode?: string
-    disable_notification?: boolean
-    reply_to_message_id?: number
-}
