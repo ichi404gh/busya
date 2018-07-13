@@ -17,6 +17,9 @@ const sendPhoto = (params: SendPhotoParams): void => {
 }
 
 export default async (update: Update): Promise<void> => {
+    if (update.message === undefined){
+        return
+    }
     if (/пук/i.test(update.message.text)) {
         sendPhoto({
             chat_id: update.message.chat.id,
