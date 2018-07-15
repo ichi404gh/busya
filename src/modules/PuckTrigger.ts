@@ -16,11 +16,13 @@ export default class PuckTrigger extends AbstractModule {
 
         setTimeout(() => {
             this.canPuck = true
-        }, 1 * 60 * 1000)
+        }, 60_000)
+
+        const randomIndex = Math.floor(Math.random() * _const.bubleUrls.length)
 
         tgApi.SendPhoto({
             chat_id: update.message.chat.id,
-            photo: _const.bubleUrl,
+            photo: _const.bubleUrls[randomIndex],
             reply_to_message_id: update.message.message_id
         })
     }
