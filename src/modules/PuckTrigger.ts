@@ -8,7 +8,7 @@ export default class PuckTrigger extends AbstractModule {
     private canPuck = true
 
     protected Filter(update: Update): boolean {
-        return update.message !== undefined && /пук/i.test(update.message.text) && this.canPuck
+        return update.message !== undefined && /^пу+к/i.test(update.message.text) && this.canPuck
     }
 
     protected async ProcessUpdate(update: Update) {

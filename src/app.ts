@@ -5,6 +5,7 @@ import bodyparser from 'koa-bodyparser-ts'
 import config from './config'
 import { ModuleLoader } from './modules';
 import PuckTrigger from './modules/PuckTrigger';
+import TyanTrigger from './modules/TyanTrigger';
 
 const app = new Koa();
 app.use(bodyparser())
@@ -13,6 +14,7 @@ const router = new Router();
 
 const modules = new ModuleLoader([
     new PuckTrigger(),
+    new TyanTrigger(),
 ])
 
 router.post('/' + config.updateUrl, async (ctx) => {
