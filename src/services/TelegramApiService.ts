@@ -9,11 +9,20 @@ interface SendPhotoParams {
     disable_notification?: boolean
     reply_to_message_id?: number
 }
-
+interface ReplyMessageParams {
+    chat_id: number | string
+    text: string
+    reply_to_message_id: number
+}
 class TgApi {
     SendPhoto(params: SendPhotoParams): void {
         call("sendPhoto", params)
     }
+
+    ReplyMessage(params: ReplyMessageParams): void {
+        call("sendMessage", params)
+    }
+
 }
 
 function call(method: string, params: any) {
