@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha -r ts-node/register src/**/*.spec.ts",
     "start": "./node_modules/.bin/nodemon --watch 'src/**/*' -e ts,tsx --exec './node_modules/.bin/ts-node' ./src/app.ts"
   },
   "keywords": [],
@@ -25,5 +25,11 @@
     "nodemon": "^1.18.1",
     "ts-node": "^7.0.0",
     "typescript": "^2.9.2"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/mocha": "^5.2.4",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
   }
 }
