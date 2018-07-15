@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/nodemon --watch 'src/**/*' -e ts,tsx --exec './node_modules/.bin/ts-node' ./src/app.ts",
-    "server": "./node_modules/.bin/ts-node ./src/app.ts"
+    "start": "./node_modules/.bin/nodemon --watch 'src/**/*' -e ts,tsx --exec './node_modules/.bin/ts-node' ./src/app.ts"
   },
   "keywords": [],
   "author": "",
@@ -15,15 +14,16 @@
     "yarn": "1.7.0"
   },
   "dependencies": {
+    "@types/koa": "^2.0.46",
+    "@types/koa-router": "^7.0.30",
+    "@types/node": "^10.5.2",
     "@types/node-fetch": "^2.1.1",
     "koa": "^2.5.2",
     "koa-bodyparser-ts": "^0.3.1",
     "koa-router": "^7.4.0",
     "node-fetch": "^2.1.2",
+    "nodemon": "^1.18.1",
     "ts-node": "^7.0.0",
-    "typescript": "^2.9.2",
-    "@types/koa": "^2.0.46",
-    "@types/koa-router": "^7.0.30",
-    "nodemon": "^1.18.1"
+    "typescript": "^2.9.2"
   }
 }

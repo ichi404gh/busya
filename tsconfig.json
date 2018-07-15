@@ -4,7 +4,9 @@
         "target": "es2017",
         "noImplicitAny": true,
         "outDir": "./dist",
-        "sourceMap": true
+        "sourceMap": true,
+        "alwaysStrict": true,
+        "moduleResolution": "node"
     },
     "include": [
         "./src/**/*"
