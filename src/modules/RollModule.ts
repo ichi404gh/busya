@@ -9,21 +9,29 @@ export default class RollModule extends AbstractModule {
     }
 
     protected async ProcessUpdate(update: Update) {
-        const value = this.GetRollFromCommand(update.message.text)
-        tgApi.ReplyMessage({
-            chat_id: update.message.chat.id,
-            reply_to_message_id: update.message.message_id,
-            text: value.toString()
-        })
+        try {
+            const value = this.GetRollFromCommand(update.message.text)
+            tgApi.ReplyMessage({
+                chat_id: update.message.chat.id,
+                reply_to_message_id: update.message.message_id,
+                text: value.toString()
+            })
+        } catch (e) { }
     }
 
-    private GetRollFromCommand(command: string): number{
+    private GetRollFromCommand(command: string): number {
         let matches
         let res = 0
 
         const text = command
 
-        if (matches = /\/roll (\d+) (\d+)/.exec(text)) {
+        if (matches = /\/roll (\d+)d(\d+)/.exec(text)) {
+            if (parseInt(matches[1]) < 0 || parseInt(matches[2]) < 0) {
+                throw new Error("Argument exception")
+            }
+
+            res = RollService.rollDice(parseInt(matches[1]), parseInt(matches[2]))
+        } else if (matches = /\/roll (\d+) (\d+)/.exec(text)) {
             res = RollService.roll(parseInt(matches[1]), parseInt(matches[2]))
         } else if (matches = /\/roll (\d+)/.exec(text)) {
             res = RollService.roll(1, parseInt(matches[1]))

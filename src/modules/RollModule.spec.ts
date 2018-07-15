@@ -19,5 +19,10 @@ describe("RollModule", ()=>{
 
         res = f("/roll 50 60")
         expect(res).gte(50).and.lte(60)
+
+        for (let i = 0; i < 1000; i++) {
+            res = f("/roll 3d6")
+            expect(res).gte(3).and.lte(18)                
+        }
     })
 })
