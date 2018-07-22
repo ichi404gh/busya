@@ -5,15 +5,15 @@ export class ModuleLoader {
 
     ReceiveUpdate(update: Update) {
         for (const module of this.modules) {
-            if(module.Receive(update)) break
+            if (module.Receive(update)) break
         }
     }
 }
 
 export abstract class AbstractModule {
-    
+
     Receive(update: Update): boolean {
-        if(this.Filter(update)){
+        if (this.Filter(update)) {
             this.ProcessUpdate(update)
             return true
         }

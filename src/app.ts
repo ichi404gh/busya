@@ -20,7 +20,7 @@ const modules = new ModuleLoader([
 ])
 
 router.post('/' + config.updateUrl, async (ctx) => {
-    modules.ReceiveUpdate(ctx.request.body)
+    await modules.ReceiveUpdate(ctx.request.body)
     ctx.res.statusCode = 200;
 })
 
