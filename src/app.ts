@@ -20,10 +20,10 @@ app.use(bodyparser())
 const router = new Router();
 
 const modules = new ModuleLoader([
+    new AnswerModule(),
     new PuckTrigger(),
     new TyanTrigger(),
     new RollModule(),
-    new AnswerModule(),
 ])
 
 router.post('/' + config.updateUrl, async (ctx) => {
