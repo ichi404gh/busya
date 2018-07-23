@@ -5,12 +5,14 @@ export class ModuleLoader {
 
     ReceiveUpdate(update: Update) {
         for (const module of this.modules) {
+            if(module.receiveText && (!update.message || !update.message.text)) continue
             if (module.Receive(update)) break
         }
     }
 }
 
 export abstract class AbstractModule {
+    receiveText = false
 
     Receive(update: Update): boolean {
         if (this.Filter(update)) {

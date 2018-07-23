@@ -10,4 +10,17 @@ export default {
         "https://img3.badfon.ru/wallpaper/big/4/81/lisa-ryzhaya-hitraya-morda-yazyk.jpg",
         "https://avatarko.ru/img/kartinka/28/zhivotnye_lisa_27731.jpg",
     ],
+    yesNoAnswers: [
+        "Да",
+        "Нет",
+        "Конечно",
+        "Это врядли",
+        "Обязательно",
+        "Ни в коем случае",
+        "Без сомнений",
+        "Это не важно",
+        "Это глупый вопрос",
+        "Определенно",
+        "Глупости"
+    ]
 }

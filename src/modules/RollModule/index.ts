@@ -1,11 +1,13 @@
-import { AbstractModule } from ".";
-import { Update } from "../interfaces";
-import RollService from "../services/RollService";
-import tgApi from "../services/TelegramApiService";
+import { AbstractModule } from "..";
+import { Update } from "../../interfaces";
+import RollService from "../../services/RollService";
+import tgApi from "../../services/TelegramApiService";
 
 export default class RollModule extends AbstractModule {
+    receiveText = true
+    
     protected Filter(update: Update): boolean {
-        return update.message !== undefined && /^\/roll/.test(update.message.text)
+        return /^\/roll/.test(update.message.text)
     }
 
     protected async ProcessUpdate(update: Update) {

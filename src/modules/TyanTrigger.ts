@@ -3,12 +3,13 @@ import { Update } from "../interfaces";
 import _const from "../const";
 import tgApi from "../services/TelegramApiService"
 
-
 export default class A extends AbstractModule {
+    receiveText = true
+
     private canReactTyan = true
 
     protected Filter(update: Update): boolean {
-        return update.message !== undefined && /(\s|^)тя+н/i.test(update.message.text) && this.canReactTyan
+        return /(\s|^)тя+н/i.test(update.message.text) && this.canReactTyan
     }
 
     protected async ProcessUpdate(update: Update) {
@@ -18,11 +19,10 @@ export default class A extends AbstractModule {
             this.canReactTyan = true
         }, 60_000)
 
-        const randomIndex = Math.floor(Math.random() * _const.foxUrls.length)
 
         tgApi.SendPhoto({
             chat_id: update.message.chat.id,
-            photo: _const.foxUrls[randomIndex],
+            photo: _const.foxUrls.pick(),
             reply_to_message_id: update.message.message_id
         }).then(x => {
             setTimeout(() => {

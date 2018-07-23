@@ -1,5 +1,5 @@
 import 'mocha'
-import RollModule from './RollModule'
+import RollModule from '.'
 import { expect } from 'chai'
 
 const nameof = <T>(name: keyof T) => name
